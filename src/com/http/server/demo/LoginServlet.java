@@ -6,7 +6,7 @@ public class LoginServlet extends Servlet {
 	public void doGet(Request req, Response resp) throws Exception {
 		resp.println("<html><head><title>index</title>");
 		resp.println("</head><body><h1>");
-		if(login(req.getParameterValue("name"),req.getParameterValue("password"))){
+		if(login(req.getParameterValue("name"),req.getParameterValue("passwd"))){
 			resp.print("欢迎 ");
 			resp.print(req.getParameterValue("name"));
 			resp.println(" 回来");

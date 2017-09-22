@@ -2,9 +2,9 @@ package com.http.server.demo;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.net.Socket;
 
 public class CloseUtil {
+	@SafeVarargs
 	public static <T extends Closeable> void closeIO(T... io){
 		for(Closeable temp:io){
 			try {
@@ -17,6 +17,7 @@ public class CloseUtil {
 		}
 	}
 	
+	@SafeVarargs
 	public static <T extends Closeable> void closeSocket(T... sockets){
 		for(Closeable socket:sockets){
 			try {
