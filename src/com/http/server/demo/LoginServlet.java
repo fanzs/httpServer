@@ -6,10 +6,18 @@ public class LoginServlet extends Servlet {
 	public void doGet(Request req, Response resp) throws Exception {
 		resp.println("<html><head><title>index</title>");
 		resp.println("</head><body><h1>");
-		resp.print("欢迎 ");
-		resp.print(req.getParameterValue("name"));
-		resp.println(" 回来");
+		if(login(req.getParameterValue("name"),req.getParameterValue("password"))){
+			resp.print("欢迎 ");
+			resp.print(req.getParameterValue("name"));
+			resp.println(" 回来");
+		}else{
+			resp.println("登录失败");
+		}
 		resp.println("</h1></body></html>");
+	}
+	
+	private boolean login(String name,String pwd){
+		return "fzs".equals(name) && "123".equals(pwd);
 	}
 
 	@Override

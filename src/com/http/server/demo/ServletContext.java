@@ -5,21 +5,21 @@ import java.util.Map;
 
 public class ServletContext {
 	//为每一个Servlet去个别名
-	private Map<String,Servlet> servlet;
+	private Map<String,String> servlet;
 
 	//
 	private Map<String,String> mapping;
 	
 	public ServletContext() {
-		servlet=new HashMap<String,Servlet>();
+		servlet=new HashMap<String,String>();
 		mapping=new HashMap<String,String>();
 	}
 	
-	public Map<String, Servlet> getServlet() {
+	public Map<String, String> getServlet() {
 		return servlet;
 	}
 	
-	public void setServlet(Map<String, Servlet> servlet) {
+	public void setServlet(Map<String, String> servlet) {
 		this.servlet = servlet;
 	}
 	
