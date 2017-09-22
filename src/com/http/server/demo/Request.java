@@ -34,7 +34,7 @@ public class Request {
 		try {
 			byte[] data=new byte[20480];
 			int len=this.is.read(data);
-			requestInfo=new String(data,0,len);
+			if(len>0)requestInfo=new String(data,0,len);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return ;
@@ -136,7 +136,7 @@ public class Request {
 	public String getParameterValue(String name){
 		List<String> values=null;
 		if((values=parameterMapValues.get(name))==null){
-			return null;
+			return "null";
 		}else {
 			return values.get(0);
 		}

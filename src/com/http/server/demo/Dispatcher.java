@@ -1,6 +1,7 @@
 package com.http.server.demo;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.Socket;
 
 public class Dispatcher implements Runnable{
@@ -13,7 +14,9 @@ public class Dispatcher implements Runnable{
 		this.client=client;
 		try {
 			this.resp=new Response(client.getOutputStream());
-			this.req=new Request(client.getInputStream());
+			InputStream inputStream = client.getInputStream();
+//System.out.println(inputStream);
+			this.req=new Request(inputStream);
 		} catch (IOException e) {
 			e.printStackTrace();
 			code=500;
@@ -38,8 +41,6 @@ public class Dispatcher implements Runnable{
 		} catch (IOException e) { 
 			e.printStackTrace();
 		}
-		
 		CloseUtil.closeSocket(client);
 	}
-
 }
